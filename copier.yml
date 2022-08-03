@@ -1,0 +1,39 @@
+# questions
+project_name:
+  type: str
+  help: Project name ?
+
+project_description:
+  type: str
+  help: Project description ?
+
+author_name:
+  type: str
+  help: Author name ?
+  default: Pierre Marijon
+
+author_email:
+  type: str
+  help: Author email ?
+  default: pierre@marijon.fr
+
+license:
+  type: str
+  choices:
+    - MIT
+    - None
+
+msrv:
+  type: str
+  help: Minimal Support Rust Version ?
+  default: 1.62
+  choices:
+    - 1.62
+    - 1.61
+    - 1.60
+    - 1.59
+
+cli:
+  type: bool
+  help: It's a binary project ?
+  default: false

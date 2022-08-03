@@ -1,0 +1,43 @@
+[package]
+name = "{{project_name}}"
+version = "0.1.0"
+authors = ["{{author_name}} <{{author_email}}>"]
+edition = "2021"
+description = "{{project_description}}"
+rust-version = "{{msrv}}"
+
+homepage = "https://github.com/natir/{{project_name}}"
+repository = "https://github.com/natir/{{project_name}}"
+documentation = "https://natir.github.io/{{project_name}}/{{project_name}}"
+
+readme = "Readme.md"
+license-file = "LICENSE"
+
+[dependencies]
+{% if cli %}
+# CLI management
+clap           = { version = "3", features = ["derive"] }
+{% endif %}
+
+# Logging and error management
+log            = { version = "0.4" }
+anyhow         = { version = "1" }
+thiserror      = { version = "1" }
+{% if cli %}
+stderrlog      = { version = "0.4" }
+{% endif %}
+
+[dev-dependencies]
+criterion      = { version = "0.3" }
+
+[profile.release]
+lto = 'thin'
+opt-level = 3
+overflow-checks = false
+panic = 'abort'
+incremental = false
+
+
+[profile.profiling]
+inherits = "release"
+debug = true
