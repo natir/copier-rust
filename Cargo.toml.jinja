@@ -13,23 +13,33 @@ documentation = "https://natir.github.io/{{project_name}}/{{project_name}}"
 readme = "Readme.md"
 license-file = "LICENSE"
 
+
 [dependencies]
 {% if cli %}
 # CLI management
 clap           = { version = "3", features = ["derive"] }
 {% endif %}
 
+# Error management
+thiserror      = { version = "1" }
+
 # Logging and error management
 log            = { version = "0.4" }
-anyhow         = { version = "1" }
-thiserror      = { version = "1" }
 {% if cli %}
 stderrlog      = { version = "0.4" }
 {% endif %}
 
+
 [dev-dependencies]
 criterion      = { version = "0.3" }
+
 {% if not cli %}
+# CLI management
+clap           = { version = "3", features = ["derive"] }
+{% endif %}
+
+{% if not cli %}
+# Logging management
 stderrlog      = { version = "0.4" }
 {% endif %}
 
