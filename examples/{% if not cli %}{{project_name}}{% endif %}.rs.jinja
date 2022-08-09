@@ -42,7 +42,7 @@ fn main() -> error::Result<()> {
         .verbosity(params.verbosity)
         .timestamp(params.ts.unwrap_or(stderrlog::Timestamp::Off))
         .init()
-	.unwrap();
+        .unwrap();
 
     log::trace!("Hello, word!");
 
