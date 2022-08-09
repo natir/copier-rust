@@ -1,0 +1,26 @@
+//! {{project_description}}
+
+#![warn(missing_docs)]
+
+/* std use */
+
+/* crate use */
+
+use clap::Parser as _;
+
+/* project use */
+use {{project_name}}::error;
+
+fn main() -> error::Result<()> {
+    // Setup logger
+    stderrlog::new()
+        .module(module_path!())
+        .quiet(params.quiet())
+        .verbosity(params.verbosity())
+        .timestamp(params.timestamp())
+        .init()?;
+
+    log::error!("Hello, word!");
+
+    Ok(())
+}
