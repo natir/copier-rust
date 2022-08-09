@@ -21,6 +21,8 @@ license:
   type: str
   choices:
     - MIT
+    - GPL
+    - LGPL
     - AGPL
     - WTFPL
     - None
