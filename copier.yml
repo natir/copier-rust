@@ -21,6 +21,7 @@ license:
   type: str
   choices:
     - MIT
+    - AGPL
     - WTFPL
     - None
 
