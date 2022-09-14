@@ -32,15 +32,51 @@ vcs:
     - git
     - None
 
-license:
+
+copyright_holder:
   type: str
+  help: The name of the person/entity holding the copyright
+  default: "{{ author_name }}"
+
+copyright_holder_email:
+  type: str
+  help: The email of the person/entity holding the copyright
+  default: "{{ author_email }}"
+
+copyright_date:
+  type: str
+  help: The copyright date
+  default: "2022"
+
+copyright_license:
+  type: str
+  help: Your project's license
+  default: MIT
   choices:
+    - AFL-3.0
+    - Apache-2.0
+    - Artistic-2.0
+    - BSD-2-Clause
+    - BSD-3-Clause
+    - BSL-1.0
+    - EPL-1.0
+    - EPL-2.0
+    - EUPL-1.0
+    - EUPL-2.0
+    - AGPL-3.0
+    - GPL-2.0
+    - GPL-3.0
+    - LGPL-2.0-or-later
+    - LGPL-3.0
+    - ISC
     - MIT
-    - GPL
-    - LGPL
-    - AGPL
-    - WTFPL
-    - None
+    - MPL-2.0
+    - NCSA
+    - OFL-1.1
+    - OSL-3.0
+    - PostgreSQL
+    - Unlicense
+    - Zlib
 
 msrv:
   type: str
