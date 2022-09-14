@@ -25,13 +25,6 @@ author_email:
   help: Author email ?
   default: pierre@marijon.fr
 
-vcs:
-  type: str
-  help: Which VCS use ?
-  choices:
-    - git
-    - None
-
 copyright_holder:
   type: str
   help: The name of the person/entity holding the copyright
