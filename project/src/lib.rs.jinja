@@ -9,7 +9,9 @@
 /* project use */
 
 /* mod declaration */
-{% if cli %}pub mod cli;{% endif %}
+{% if cli -%}
+pub mod cli;
+{% endif -%}
 pub mod error;
 
 #[cfg(test)]

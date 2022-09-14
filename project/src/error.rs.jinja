@@ -6,9 +6,10 @@ use thiserror;
 /// Enum to manage error
 #[derive(std::fmt::Debug, thiserror::Error)]
 pub enum Error {
-    {% if cli %}/// Error in logging system configuration
+    {% if cli -%}/// Error in logging system configuration
     #[error(transparent)]
-    Log(#[from] log::SetLoggerError),{% endif %}
+    Log(#[from] log::SetLoggerError),
+    {% endif -%}
 }
 
 /// Alias of result

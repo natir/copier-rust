@@ -32,7 +32,6 @@ vcs:
     - git
     - None
 
-
 copyright_holder:
   type: str
   help: The name of the person/entity holding the copyright
@@ -81,8 +80,9 @@ copyright_license:
 msrv:
   type: str
   help: Minimal Support Rust Version ?
-  default: 1.62
+  default: 1.63
   choices:
+    - 1.63
     - 1.62
     - 1.61
     - 1.60
