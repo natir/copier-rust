@@ -25,6 +25,16 @@ author_email:
   help: Author email ?
   default: pierre@marijon.fr
 
+ci:
+  type: str
+  help: What Continuous Integration service do you want to use?
+  choices:
+    GitHub CI: github
+    GitLab CI: gitlab
+    None: none
+  default: github
+
+
 copyright_holder:
   type: str
   help: The name of the person/entity holding the copyright
