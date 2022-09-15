@@ -25,15 +25,38 @@ author_email:
   help: Author email ?
   default: pierre@marijon.fr
 
-ci:
+forge_host:
   type: str
-  help: What Continuous Integration service do you want to use?
+  help: Forge host
   choices:
-    GitHub CI: github
-    GitLab CI: gitlab
-    None: none
+    GitHub: github.com
+    GitLab: gitlab.com
+    Other: "none"
   default: github
 
+forge_host_custom:
+  type: str
+  help: Forge host custom
+  when: "{{ forge_host == 'none' }}"
+
+forge_namespace:
+  type: str
+  help: Forge namespace
+  default: "{{ author_name|lower|replace('_', '.')|replace(' ', '.') }}"
+
+forge_repo_name:
+  type: str
+  help: Forge repository name
+  default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
+
+ci:
+  type: str
+  help: Did you use a ci system ?
+  choices:
+    Github: github
+    Gitlab: gitlab
+    No: none
+  default: "{% if forge_host == 'github.com' %}github{%else%}gitlab{% endif %}"
 
 copyright_holder:
   type: str
