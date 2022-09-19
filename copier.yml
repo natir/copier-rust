@@ -2,9 +2,9 @@
 _subdirectory: project
 _templates_suffix: .jinja
 _tasks:
-  - git init
-  - git add .
-  - git commit -a -m "From each according to his ability, to each according to his needs"
+  - "[[ -f .git ]] && git init || true"
+  - "[[ -f .git ]] && git add . || true"
+  - "[[ -f .git ]] && git commit -a -m \"From each according to his ability, to each according to his needs\" || true"
 
 # questions
 project_name:
