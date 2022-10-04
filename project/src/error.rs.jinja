@@ -1,6 +1,9 @@
 //! Error struct of project {{project_name}}
 
 /* crate use */
+{% if cli -%}
+use anyhow;
+{% endif -%}
 use thiserror;
 
 /// Enum to manage error
@@ -13,4 +16,8 @@ pub enum Error {
 }
 
 /// Alias of result
+{% if cli -%}
+pub type Result<T> = anyhow::Result<T>;
+{% else -%}
 pub type Result<T> = core::result::Result<T, Error>;
+{% endif -%}

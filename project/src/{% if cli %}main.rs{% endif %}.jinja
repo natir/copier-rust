@@ -6,6 +6,7 @@
 
 /* crate use */
 
+use anyhow::Context as _;
 use clap::Parser as _;
 
 /* project use */
@@ -22,7 +23,8 @@ fn main() -> error::Result<()> {
         .quiet(params.quiet())
         .verbosity(params.verbosity())
         .timestamp(params.timestamp())
-        .init()?;
+        .init()
+	.context("stderrlog already create a logger")?;
 
     log::error!("Hello, word!");
 

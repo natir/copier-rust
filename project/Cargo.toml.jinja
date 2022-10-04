@@ -15,30 +15,30 @@ license-file = "LICENSE"
 
 
 [dependencies]
-{% if cli -%}
-# CLI management
+{% if cli -%}# CLI management
 clap           = { version = "3", features = ["derive"] }
-{% endif -%}
+{% endif %}
 
 # Error management
 thiserror      = { version = "1" }
+{% if cli -%}
+anyhow         = { version = "1"}
+{% endif %}
 
 # Logging and error management
 log            = { version = "0.4" }
 {% if cli -%}
 stderrlog      = { version = "0.4" }
-{% endif %}
+{% endif -%}
+
 
 [dev-dependencies]
 criterion      = { version = "0.3" }
 
-
 {% if not cli -%}
 # CLI management
 clap           = { version = "3", features = ["derive"] }
-{% endif -%}
 
-{% if not cli -%}
 # Logging management
 stderrlog      = { version = "0.4" }
 {% endif -%}
