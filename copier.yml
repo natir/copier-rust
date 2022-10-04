@@ -106,13 +106,12 @@ copyright_license:
 msrv:
   type: str
   help: Minimal Support Rust Version ?
-  default: 1.63
+  default: 1.64
   choices:
+    - 1.64
     - 1.63
     - 1.62
     - 1.61
-    - 1.60
-    - 1.59
 
 cli:
   type: bool
