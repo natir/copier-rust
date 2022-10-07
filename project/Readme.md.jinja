@@ -3,6 +3,7 @@
 {% endif -%}
 
 <h1 style="text-align: center;">{{project_name}}</h1>
+
 {% if forge_host == "github.com" -%}
 ![Test](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/Test/badge.svg)
 ![Lints](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/Lints/badge.svg)
@@ -60,6 +61,8 @@
 {% elif copyright_license == 'Zlib' -%}
 [![License](https://img.shields.io/badge/license-Zlib-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
 {% endif %}
+
+{{ project_description }}
 
 ## Installation
 
