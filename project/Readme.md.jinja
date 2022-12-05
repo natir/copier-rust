@@ -1,4 +1,4 @@
-{% if forge_host_custom is defined -%}
+{% if forge_host_custom is not none -%}
 {% set forge_host = forge_host_custom -%}
 {% endif -%}
 
