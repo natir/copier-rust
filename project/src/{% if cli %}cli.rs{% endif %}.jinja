@@ -19,8 +19,8 @@ pub struct Command {
     quiet: bool,
 
     /// Verbose mode (-v, -vv, -vvv, etc)
-    #[clap(short = 'v', long = "verbosity", parse(from_occurrences))]
-    verbosity: usize,
+    #[clap(short = 'v', long = "verbosity", action = clap::ArgAction::Count)]
+    verbosity: u8,
 
     /// Timestamp (sec, ms, ns, none)
     #[clap(short = 'T', long = "timestamp")]
@@ -30,7 +30,7 @@ pub struct Command {
 impl Command {
     /// Get verbosity level
     pub fn verbosity(&self) -> usize {
-        self.verbosity
+        self.verbosity as usize
     }
 
     /// Get quiet
