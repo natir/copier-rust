@@ -28,19 +28,19 @@ anyhow         = { version = "1"}
 # Logging and error management
 log            = { version = "0.4" }
 {% if cli -%}
-stderrlog      = { version = "0.4" }
+stderrlog      = { version = "0.5" }
 {% endif -%}
 
 
 [dev-dependencies]
-criterion      = { version = "0.3" }
+criterion      = { version = "0.4" }
 
 {% if not cli -%}
 # CLI management
-clap           = { version = "3", features = ["derive"] }
+clap           = { version = "4", features = ["derive"] }
 
 # Logging management
-stderrlog      = { version = "0.4" }
+stderrlog      = { version = "0.5" }
 {% endif -%}
 
 [profile.release]
