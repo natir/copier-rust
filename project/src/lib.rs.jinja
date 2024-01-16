@@ -7,6 +7,10 @@
 /* crate use */
 
 /* project use */
+{% if proc_macro -%}
+#[cfg(feature = "derive")]
+pub use biommap_derive as derive;
+{% endif %}
 
 /* mod declaration */
 {% if cli -%}

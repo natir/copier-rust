@@ -1,0 +1,19 @@
+[package]
+name = "{{project_name}}_derive"
+version = "0.1.0"
+edition = "2021"
+
+description = "Proc macro crate of {{project_name}} crate"
+rust-version = "{{msrv}}"
+
+readme = "../Readme.md"
+license-file = "../LICENSE"
+
+[lib]
+proc_macro = true
+
+[dependencies]
+# Proc macro
+proc-macro2    = { version = "1" }
+syn            = { version = "2", features = ["full"] }
+quote          = { version = "1" }

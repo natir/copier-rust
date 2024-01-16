@@ -31,6 +31,10 @@ log            = { version = "0.4" }
 stderrlog      = { version = "0.5" }
 {% endif -%}
 
+{% if proc_macro %}
+# Procedural macro
+{{project_name}}_derive = { path = "{{project_name}}_derive", optional = true }
+{% endif %}
 
 [dev-dependencies]
 criterion      = { version = "0.5" }
