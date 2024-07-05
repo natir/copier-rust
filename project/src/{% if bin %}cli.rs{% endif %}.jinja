@@ -1,4 +1,4 @@
-//! Command Line Interface declaration of project {{project_name}}
+//! Command Line Interface of {{project_name}}
 
 /* std use */
 
@@ -6,14 +6,19 @@
 
 /* project use */
 
-/// {{project_description}}
 #[derive(clap::Parser, std::fmt::Debug)]
 #[clap(
     name = "{{project_name}}",
-    version = "0.1",
-    author = "{{author_name}} <{{author_email}}>"
+    bin_name = "{{project_name}}",
+    version = "0.1.0",
+    author = "{{author_name}} <{{author_mail}}>"
 )]
-pub struct Command {
+pub struct Arguments {
+    /// Input sequence
+    #[clap(short = 'i', long = "input")]
+    input: String,
+
+    // Generic parameter
     /// Silence all output
     #[clap(short = 'q', long = "quiet")]
     quiet: bool,
@@ -27,7 +32,12 @@ pub struct Command {
     ts: Option<stderrlog::Timestamp>,
 }
 
-impl Command {
+impl Arguments {
+    /// Get input sequence
+    pub fn input(&self) -> Vec<u8> {
+        self.input.as_bytes().to_vec()
+    }
+
     /// Get verbosity level
     pub fn verbosity(&self) -> usize {
         self.verbosity as usize

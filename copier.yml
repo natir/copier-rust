@@ -25,20 +25,6 @@ author_email:
   help: Author email ?
   default: pierre@marijon.fr
 
-forge_host:
-  type: str
-  help: Forge host
-  choices:
-    GitHub: github.com
-    GitLab: gitlab.com
-    Other: "none"
-  default: github
-
-forge_host_custom:
-  type: str
-  help: Forge host custom
-  when: "{{ forge_host == 'none' }}"
-
 forge_namespace:
   type: str
   help: Forge namespace
@@ -48,15 +34,6 @@ forge_repo_name:
   type: str
   help: Forge repository name
   default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
-
-ci:
-  type: str
-  help: Did you use a ci system ?
-  choices:
-    Github: github
-    Gitlab: gitlab
-    No: none
-  default: "{% if forge_host == 'github.com' %}github{%else%}gitlab{% endif %}"
 
 copyright_holder:
   type: str
@@ -71,7 +48,7 @@ copyright_holder_email:
 copyright_date:
   type: str
   help: The copyright date
-  default: "2023"
+  default: "2024"
 
 copyright_license:
   type: str
@@ -114,12 +91,12 @@ msrv:
     - 1.72
     - 1.71
 
-cli:
+bin:
   type: bool
   help: It's a binary project ?
   default: false
 
-proc_macro:
+lib:
   type: bool
-  help: It's a proc-macro project ?
-  default: false
+  help: It's a lib project ?
+  default: true

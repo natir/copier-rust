@@ -19,13 +19,13 @@ I recommend to fork this repository or just copy the project to adapt it to your
 
 ## Dependency
 
-Lib mode (19/120 no-dev/dev dependencies in total):
+Lib mode (7/47 no-dev/dev dependencies in total):
 - thiserror  = "1"
 - log        = "0.4"
 - criterion  = "0.3" (dev)
 - stderrlog  = "0.4" (dev)
 
-Cli mode (63/123 no-dev/dev dependencies in total):
+Bin mode (32/46 no-dev/dev dependencies in total):
 - clap       = "3"
 - anyhow     = "1"
 - stderrlog  = "0.4"
