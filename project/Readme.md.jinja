@@ -1,81 +1,39 @@
-{% if forge_host_custom is not none -%}
-{% set forge_host = forge_host_custom -%}
-{% endif -%}
+# {{project_name}} 🧬 💻
 
-<h1 style="text-align: center;">{{project_name}}</h1>
-
-{% if forge_host == "github.com" -%}
-![Test](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/Test/badge.svg)
-![Lints](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/Lints/badge.svg)
-![MSRV](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/MSRV/badge.svg)
-[![CodeCov](https://codecov.io/gh/{{forge_namespace}}/{{forge_repo_name}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{forge_namespace}}/{{forge_repo_name}})
-[![Documentation](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/Documentation/badge.svg)](https://{{forge_namespace}}.github.io/{{forge_repo_name}}/{{forge_repo_name}})
-{% endif -%}
-
-{% if copyright_license == 'AFL-3.0' -%}
-[![License](https://img.shields.io/badge/license-AFL3-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'Apache-2.0' -%}
-[![License](https://img.shields.io/badge/license-Apache2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'Artistic-2.0' -%}
-[![License](https://img.shields.io/badge/license-Artistic2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'BSD-2-Clause' -%}
-[![License](https://img.shields.io/badge/license-BSD2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'BSD-3-Clause' -%}
-[![License](https://img.shields.io/badge/license-BSD3-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'BSL-1.0' -%}
-[![License](https://img.shields.io/badge/license-BSL-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'EPL-1.0' -%}
-[![License](https://img.shields.io/badge/license-EPL-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'EPL-2.0' -%}
-[![License](https://img.shields.io/badge/license-EPL2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'EUPL-1.0' -%}
-[![License](https://img.shields.io/badge/license-EUPL-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'EUPL-2.0' -%}
-[![License](https://img.shields.io/badge/license-EUPL2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'AGPL-3.0' -%}
-[![License](https://img.shields.io/badge/license-AGPL3-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'GPL-2.0' -%}
-[![License](https://img.shields.io/badge/license-GPL2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'GPL-3.0' -%}
-[![License](https://img.shields.io/badge/license-GPL3-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'LGPL-2.0-or-later' -%}
-[![License](https://img.shields.io/badge/license-LGPL2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'LGPL-3.0' -%}
-[![License](https://img.shields.io/badge/license-LGPL3-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'ISC' -%}
-[![License](https://img.shields.io/badge/license-ISC-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'MIT' -%}
-[![License](https://img.shields.io/badge/license-MIT-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'MPL-2.0' -%}
-[![License](https://img.shields.io/badge/license-MPL2-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'NCSA' -%}
-[![License](https://img.shields.io/badge/license-NCSA-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'OFL-1.1' -%}
-[![License](https://img.shields.io/badge/license-OFL1.1-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'OSL-3.0' -%}
-[![License](https://img.shields.io/badge/license-OSL3-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'PostgreSQL' -%}
-[![License](https://img.shields.io/badge/license-PostgreSQL-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'Unlicense' -%}
-[![License](https://img.shields.io/badge/license-Unlicense-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% elif copyright_license == 'Zlib' -%}
-[![License](https://img.shields.io/badge/license-Zlib-green)](https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}/blob/master/LICENSE)
-{% endif %}
+![tests](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/tests/badge.svg)
+![lints](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/lints/badge.svg)
+![msrv](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/msrv/badge.svg)
+[![website](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/website/badge.svg)](https://{{forge_namespace}}.github.io/{{forge_repo_name}})
+[![license](https://img.shields.io/badge/license-{{license}}-green)]({{repository_uri}}/blob/main/LICENSE)
+[![copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
 {{ project_description }}
 
-## Installation
+## Usage
 
+{% if bin %}
+Add this in your Cargo.toml
+```
+{{project_name}} = { version = "0.1" }
+```
+{% endif %}
+
+{% if lib %}
 ### From source
 
 ```bash
-git clone https://{{forge_host}}/{{forge_namespace}}/{{forge_repo_name}}.git
-cd {{forge_repo_name}}
-cargo install --path .
+git clone {repository_uri}
+cd {{repository_name}}
+cargo install --path
+```
+{% endif %}
+
+## How to cite
+
+```
+{{author_name}}, {{project_name}}: {{project_description}}, JOSS, https://doi.org/XXXXXXX
 ```
 
-## Usage
-
-## Minimum supported Rust version
+## Minimum Supported Rust Version
 
 Currently the minimum supported Rust version is {{msrv}}.

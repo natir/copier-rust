@@ -1,0 +1,19 @@
+[book]
+title        = "{{project_name}}"
+authors      = ["{{author_name}}"]
+description  = "{{project_description}}"
+language     = "en"
+multilingual = false
+src          = "docs"
+
+[build]
+build-dir      = "website"
+create-missing = false
+
+[output.html]
+smart-punctuation = true
+mathjax-support = true
+git-repository-url = "https://github.com/{{forge_namespace}}/{{forge_repo_name}}/"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/{{forge_namespace}}/{{forge_repo_name}}/edit/main/docs/{path}"
+site-url = "https://{{forge_repo_name}}.github.io/{{forge_repo_name}}"

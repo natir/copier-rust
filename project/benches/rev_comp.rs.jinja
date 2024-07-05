@@ -1,0 +1,29 @@
+//! Compare reverse complement function
+
+/* std use */
+
+/* crate use */
+
+/* project use */
+
+pub fn rev_comp_bench(c: &mut criterion::Criterion) {
+    let seq = b"GTAAATTTCCAGTTCTTCAACCAGAAAGTAATAACTGCCAGGTGTACACT";
+
+    c.bench_function("bit_op", |b| {
+        b.iter(|| criterion::black_box({{project_name}}::rev_comp(criterion::black_box(seq))))
+    });
+
+    c.bench_function("match", |b| {
+        b.iter(|| criterion::black_box({{project_name}}::rev_comp_match(criterion::black_box(seq))))
+    });
+}
+
+criterion::criterion_group! {
+name = benches;
+config = criterion::Criterion::default()               // Check https://docs.rs/criterion/latest/criterion/struct.Criterion.html
+    .warm_up_time(core::time::Duration::from_secs(1))  // for full parameter
+.measurement_time(core::time::Duration::from_secs(10))
+.sample_size(500);
+targets = rev_comp_bench
+}
+criterion::criterion_main!(benches);

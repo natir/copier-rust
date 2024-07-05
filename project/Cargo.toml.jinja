@@ -1,60 +1,88 @@
 [package]
-name = "{{project_name}}"
+name    = "{{project_name}}"
 version = "0.1.0"
-authors = ["{{author_name}} <{{author_email}}>"]
-edition = "2021"
-description = "{{project_description}}"
+authors = [
+	"{{author_name}} <{{author_mail}}>"
+]
+
+description  = "{{project_description}}"
+edition      = "2021"
 rust-version = "{{msrv}}"
 
-homepage = "https://github.com/natir/{{project_name}}"
-repository = "https://github.com/natir/{{project_name}}"
-documentation = "https://natir.github.io/{{project_name}}/{{project_name}}"
+homepage      = "https://{{forge_namespace}}.github.io/{{forge_repo_name}}"
+repository    = "https://github.com/{{forge_namespace}}/{{forge_repo_name}}"
+documentation = "https://{{forge_namespace}}.github.io/{{forge_repo_name}}"
 
-readme = "Readme.md"
+readme       = "Readme.md"
 license-file = "LICENSE"
 
+{% if lib %}
+[lib]
+name = "{{project_name}}"
+path = "src/lib.rs"
+{% endif %}
+
+{% if bin %}
+[[bin]]
+name = "{{project_name}}"
+path = "src/main.rs"
+{% endif %}
 
 [dependencies]
-{% if cli -%}# CLI management
-clap           = { version = "4", features = ["derive"] }
+{% if bin %}
+## CLI management
+clap       = { version = "4", features = ["derive"] }
 {% endif %}
 
-# Error management
-thiserror      = { version = "1" }
-{% if cli -%}
-anyhow         = { version = "1"}
+## Error management
+{% if bin %}
+anyhow     = { version = "1" }
+{% endif %}
+{% if lib %}
+thiserror  = { version = "1" }
 {% endif %}
 
-# Logging and error management
-log            = { version = "0.4" }
-{% if cli -%}
-stderrlog      = { version = "0.5" }
-{% endif -%}
-
-{% if proc_macro %}
-# Procedural macro
-{{project_name}}_derive = { path = "{{project_name}}_derive", optional = true }
+## Logging management
+{% if lib %}
+log        = { version = "0.4" }
 {% endif %}
+{% if bin %}
+stderrlog  = { version = "0.6" }
+{% endif %}
+
 
 [dev-dependencies]
-criterion      = { version = "0.5" }
+{% if bin %}
+## Functional test
+assert_cmd = { version = "2" }
+tempfile   = { version = "3" }
+{% endif %}
 
-{% if not cli -%}
-# CLI management
-clap           = { version = "4", features = ["derive"] }
+{% if lib %}
+## Benchmark management
+criterion  = { version = "0.5" }
+{% endif %}
 
-# Logging management
-stderrlog      = { version = "0.5" }
-{% endif -%}
+
+[features]
+default = []
+bench = []
+
+
+[[bench]]
+name              = "rev_comp"
+required-features = ["bench"]
+harness           = false
+
 
 [profile.release]
-lto = 'thin'
-opt-level = 3
+lto             = 'thin'
+opt-level       = 3
 overflow-checks = false
-panic = 'abort'
-incremental = false
+panic           = 'abort'
+incremental     = false
 
 
 [profile.profiling]
 inherits = "release"
-debug = true
+debug    = true
