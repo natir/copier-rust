@@ -17,14 +17,13 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
       - name: Install mdbook
-        run: |
-          tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
-          url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
-          mkdir bin
-          curl -sSL $url | tar -xz --directory=bin
-          echo "$(pwd)/bin" >> $GITHUB_PATH
+        uses: taiki-e/install-action@v2
+        with:
+	  tool: mdbook
       - name: Install tarpaulin
-        run: cargo install cargo-tarpaulin
+        uses: taiki-e/install-action@v2
+        with:
+	  tool: cargo-tarpaulin
       - name: Build test coverage page
         run: cargo tarpaulin --workspace --all-features
       - name: Build dev documentation
