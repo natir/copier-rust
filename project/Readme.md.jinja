@@ -4,20 +4,21 @@
 ![lints](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/lints/badge.svg)
 ![msrv](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/msrv/badge.svg)
 [![website](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/website/badge.svg)](https://{{forge_namespace}}.github.io/{{forge_repo_name}})
+[![dev-doc](https://github.com/{{forge_namespace}}/{{forge_repo_name}}/workflows/website/badge.svg)](https://{{forge_namespace}}.github.io/{{forge_repo_name}}/doc)
 [![license](https://img.shields.io/badge/license-{{license}}-green)]({{repository_uri}}/blob/main/LICENSE)
 [![copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
 {{ project_description }}
 
 ## Usage
-{% if bin %}
+{% if lib %}
 Add this in your Cargo.toml
 ```
 {{project_name}} = { version = "0.1" }
 ```
 {% endif -%}
 
-{%- if lib %}
+{%- if bin %}
 ### From source
 
 ```bash

@@ -1,10 +1,6 @@
 # configuration
 _subdirectory: project
 _templates_suffix: .jinja
-_tasks:
-  - "[ -d .git ] && true || git init"
-  - "[ -d .git ] && git add . || true"
-  - "[ -d .git ] && git commit -a -m \"From each according to his ability, to each according to his needs\" || true"
 
 # questions
 project_name:
@@ -28,12 +24,12 @@ author_email:
 forge_namespace:
   type: str
   help: Forge namespace
-  default: "{{ author_name|lower|replace('_', '.')|replace(' ', '.') }}"
+  default: "{{ author_name|lower|replace(' ', '.') }}"
 
 forge_repo_name:
   type: str
   help: Forge repository name
-  default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
+  default: "{{ project_name|lower|replace(' ', '-') }}"
 
 copyright_holder:
   type: str
