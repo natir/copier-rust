@@ -29,7 +29,7 @@ forge_namespace:
 forge_repo_name:
   type: str
   help: Forge repository name
-  default: "{{ project_name|lower|replace(' ', '-') }}"
+  default: "{{ project_name|lower|replace(' ', '_') }}"
 
 copyright_holder:
   type: str
@@ -44,7 +44,7 @@ copyright_holder_email:
 copyright_date:
   type: str
   help: The copyright date
-  default: "2024"
+  default: "2025"
 
 copyright_license:
   type: str

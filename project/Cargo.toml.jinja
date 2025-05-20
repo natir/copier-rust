@@ -34,7 +34,7 @@ path = "src/main.rs"
 clap       = { version = "4", features = ["derive"] }
 {% endif %}
 ## Error management
-thiserror  = { version = "1" }
+thiserror  = { version = "2" }
 {% if bin -%}
 anyhow     = { version = "1" }
 {%- endif %}
@@ -52,7 +52,7 @@ assert_cmd = { version = "2" }
 tempfile   = { version = "3" }
 {% endif %}
 ## Benchmark management
-criterion  = { version = "0.5" }
+criterion  = { version = "0.6" }
 
 
 [features]
@@ -72,6 +72,11 @@ opt-level       = 3
 overflow-checks = false
 panic           = 'abort'
 incremental     = false
+
+
+[profile.bench]
+codegen-units = 16
+lto = "thin"
 
 
 [profile.profiling]
