@@ -13,6 +13,7 @@ use {{project_name}}::cli;
 use {{project_name}}::error;
 use {{project_name}}::rev_comp;
 
+#[hotpath::main]
 fn main() -> error::Result<()> {
     // Parse argument
     let arguments = cli::Arguments::parse();

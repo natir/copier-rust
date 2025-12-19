@@ -6,7 +6,7 @@ authors = [
 ]
 
 description  = "{{project_description}}"
-edition      = "2021"
+edition      = "2024"
 rust-version = "{{msrv}}"
 
 homepage      = "https://{{forge_namespace}}.github.io/{{forge_repo_name}}"
@@ -31,19 +31,23 @@ path = "src/main.rs"
 [dependencies]
 {% if bin -%}
 ## CLI management
-clap       = { version = "4", features = ["derive"] }
+clap        = { version = "4", features = ["derive"] }
 {% endif %}
 ## Error management
-thiserror  = { version = "2" }
+thiserror   = { version = "2" }
 {% if bin -%}
-anyhow     = { version = "1" }
+anyhow      = { version = "1" }
 {%- endif %}
 
 ## Logging management
-log        = { version = "0.4" }
+log         = { version = "0.4" }
 {% if bin -%}
-stderrlog  = { version = "0.6" }
+stderrlog   = { version = "0.6" }
 {% endif %}
+
+## Profiling
+hotpath    = { version = "0.9" }
+peak_alloc = { version = "0.3", optional = true }
 
 [dev-dependencies]
 {% if bin -%}
@@ -51,6 +55,7 @@ stderrlog  = { version = "0.6" }
 assert_cmd = { version = "2" }
 tempfile   = { version = "3" }
 {% endif %}
+
 ## Benchmark management
 criterion  = { version = "0.6" }
 
@@ -58,6 +63,8 @@ criterion  = { version = "0.6" }
 [features]
 default = []
 bench = []
+
+profile = ["dep:peak_alloc", "hotpath/hotpath", "hotpath/hotpath-alloc"]
 
 
 [[bench]]

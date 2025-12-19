@@ -44,7 +44,7 @@ copyright_holder_email:
 copyright_date:
   type: str
   help: The copyright date
-  default: "2025"
+  default: "2026"
 
 copyright_license:
   type: str
@@ -79,13 +79,15 @@ copyright_license:
 msrv:
   type: str
   help: Minimal Support Rust Version ?
-  default: 1.75
   choices:
-    - 1.75
-    - 1.74
-    - 1.73
-    - 1.72
-    - 1.71
+    - 1.92
+    - 1.91
+    - "1.90"
+    - 1.89
+    - 1.88
+    - 1.87
+    - 1.86
+  default: 1.86
 
 bin:
   type: bool

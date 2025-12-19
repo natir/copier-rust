@@ -12,6 +12,7 @@ pub mod error;
 
 /* project use */
 
+#[hotpath::measure]
 #[inline]
 /// bit operation reverse complement
 pub fn rev_comp(seq: &[u8]) -> Vec<u8> {
