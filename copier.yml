@@ -87,7 +87,7 @@ msrv:
     - 1.88
     - 1.87
     - 1.86
-  default: 1.86
+  default: "1.89"
 
 bin:
   type: bool
