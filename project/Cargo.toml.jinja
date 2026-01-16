@@ -57,14 +57,14 @@ tempfile   = { version = "3" }
 {% endif %}
 
 ## Benchmark management
-criterion  = { version = "0.6" }
+criterion  = { version = "0.8" }
 
 
 [features]
 default = []
 bench = []
 
-profile = ["dep:peak_alloc", "hotpath/hotpath", "hotpath/hotpath-alloc"]
+profiling = ["dep:peak_alloc", "hotpath/hotpath", "hotpath/hotpath-alloc"]
 
 
 [[bench]]
