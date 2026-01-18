@@ -1,0 +1,33 @@
+cache:
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+    - /usr/local/cargo/
+    - ./target/
+
+.rust-template:
+  image: rust:$RUST_VERSION-slim
+  before_script:
+  - apt -y update && apt -y upgrade
+  - apt -y install pkg-config libssl-dev
+
+.rust-lints:
+  extends: .rust-template
+  before_script:
+    - !reference [.rust-template, before_script]
+    - rustup component add rustfmt
+    - rustup component add clippy
+    - cargo install polydup
+
+.rust-tests:
+  extends: .rust-template
+  before_script:
+    - !reference [.rust-template, before_script]
+    - cargo install cargo-tarpaulin
+    - cargo install cargo-msrv
+    - cargo install cargo-audit
+
+.rust-deploy:
+  extends: .rust-template
+  before_script:
+    - !reference [.rust-template, before_script]
+    - cargo install mdbook

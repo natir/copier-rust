@@ -1,0 +1,20 @@
+[scan]
+min_block_size = 50
+similarity_threshold = 0.85
+
+[scan.exclude]
+patterns = [
+    "**/*_test.rs",
+    "**/.git/**",
+    "**/target/**",
+    "**/tests/**",
+    "**/vendor/**",
+]
+
+[output]
+format = "json"
+verbose = false
+
+[ci]
+enabled = false
+fail_on_duplicates = true

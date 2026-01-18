@@ -1,0 +1,31 @@
+include:
+  - local: ".gitlab/ci/base.yml"
+
+.lints_matrix: &lints_matrix
+  parallel:
+    matrix:
+      - RUST_TOOLCHAIN: ["stable", "beta", "nightly"]
+
+
+format:
+  extends: .rust-lints
+  stage: lints
+  script:
+    - cargo +$RUST_TOOLCHAIN fmt --all --check
+  <<: *lints_matrix
+
+clippy:
+  extends: .rust-lints
+  stage: lints
+  script:
+    - cargo +$RUST_TOOLCHAIN clippy --all-targets -- -D warning
+  <<: *lints_matrix
+
+duplication:
+  extends: .rust-lints
+  stage: lints
+  script:
+    - polydup scan src --format json -o website/duplicate_code.json
+  artifacts:
+    paths:
+      - website/duplicate_code.json

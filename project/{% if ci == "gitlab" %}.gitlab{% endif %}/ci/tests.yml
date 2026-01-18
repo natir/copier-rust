@@ -1,0 +1,50 @@
+include:
+  - local: ".gitlab/ci/base.yml"
+
+.tests_matrix: &tests_matrix
+  parallel:
+    matrix:
+      - RUST_TOOLCHAIN: ["stable", "beta", "nightly"]
+
+check:
+  needs: [format, clippy]
+  extends: .rust-tests
+  stage: tests
+  script:
+    - cargo +$RUST_TOOLCHAIN check --all-targets --workspace --all-features
+  <<: *tests_matrix
+
+tests:
+  needs: [check]
+  extends: .rust-tests
+  stage: tests
+  script:
+    - cargo +$RUST_TOOLCHAIN test --all-features
+  <<: *tests_matrix
+
+msrv:
+  needs: [tests]
+  extends: .rust-tests
+  stage: tests
+  script:
+    - cargo msrv verify
+
+coverage:
+  needs: [tests]
+  extends: .rust-tests
+  stage: tests
+  script:
+    - cargo tarpaulin
+  artifacts:
+    paths:
+      - website/tarpaulin-report.html
+
+audit:
+  needs: [tests]
+  extends: .rust-tests
+  stage: tests
+  script:
+    - cargo audit --json website/audit.json
+  artifacts:
+    paths:
+      - website/audit.json

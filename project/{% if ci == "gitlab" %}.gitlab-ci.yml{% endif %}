@@ -1,0 +1,12 @@
+stages:
+  - lints
+  - tests
+  - deploy
+
+variables:
+  RUST_VERSION: "1.89"
+
+include:
+  - local: ".gitlab/ci/lints.yml"
+  - local: ".gitlab/ci/tests.yml"
+  - local: ".gitlab/ci/deploy.yml"

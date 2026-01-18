@@ -1,0 +1,23 @@
+include:
+  - local: ".gitlab/ci/base.yml"
+
+build-doc:
+  needs: [tests]
+  extends: .rust-deploy
+  stage: deploy
+  script:
+    - cargo doc --target-dir website
+  artifacts:
+    paths:
+      - website/doc
+
+build-website:
+  needs: [tests, build-doc]
+  extends: .rust-deploy
+  stage: deploy
+  script:
+    - ls website
+    - mdbook build
+  artifacts:
+    paths:
+      - public
