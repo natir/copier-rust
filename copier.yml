@@ -89,6 +89,14 @@ msrv:
     - 1.86
   default: "1.89"
 
+ci:
+  type: str
+  help: Type of ci
+  choices:
+    - github
+    - gitlab
+  default: "github"
+
 bin:
   type: bool
   help: It's a binary project ?
